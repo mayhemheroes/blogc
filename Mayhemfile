@@ -1,6 +1,5 @@
 project: rnshah9/mayhem-blogc
 target: blogc
-image: ghcr.io/rnshah9/playground:blogc
 tests: null
 
 cmds:
