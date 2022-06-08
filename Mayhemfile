@@ -1,6 +1,5 @@
 project: blogc
 target: blogc
 
-
 cmds:
   - cmd: /blogc/blogc @@
