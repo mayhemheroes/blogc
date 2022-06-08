@@ -1,6 +1,6 @@
 project: blogc
 target: blogc
-testsuite: null
+
 
 cmds:
   - cmd: /blogc/blogc @@
