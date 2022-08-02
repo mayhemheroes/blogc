@@ -3,17 +3,12 @@ RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y autoconf libtool rubygems ruby-dev make gcc
 RUN gem install ronn
 
-ADD . /blogc
+COPY . /blogc
 WORKDIR /blogc
 RUN ./autogen.sh  
-RUN ./configure 
+RUN ./configure  --prefix=/install
 RUN make
-
-RUN mkdir -p /deps
-RUN ldd /blogc/blogc | tr -s '[:blank:]' '\n' | grep '^/' | xargs -I % sh -c 'cp % /deps;'
+RUN make install
 
 FROM ubuntu:20.04 as package
-
-COPY --from=builder /deps /deps
-COPY --from=builder /blogc/blogc /blogc/blogc
-ENV LD_LIBRARY_PATH=/deps
+COPY --from=builder /install /install
