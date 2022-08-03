@@ -2,4 +2,4 @@ project: blogc
 target: blogc
 
 cmds:
-  - cmd: /blogc/blogc @@
+  - cmd: /install/bin/blogc @@
