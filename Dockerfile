@@ -4,7 +4,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y cmake make gcc git
 
 ADD . /blogc
 WORKDIR /blogc
-RUN cmake -S . -B build
+RUN echo 'set(BLOGC_VERSION 0.0.0-fuzz)' > version.cmake && cmake -S . -B build
 RUN cmake --build build
 
 RUN mkdir -p /deps
